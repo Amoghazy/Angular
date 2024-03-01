@@ -1,0 +1,23 @@
+<div class="widget-container d-flex flex-wrap">
+
+  @for (item of topedgit; track $index) {
+  <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12 flex-column  widget ">
+    <div class=" w-100 d-flex justify-content-between align-items-start">
+      <div class="icon text-white rounded p-2 fs-3 d-flex align-items-center"><span nz-icon nzType={{item.icon}}
+          nzTheme="outline"></span>
+      </div>
+      <div class="value">
+        <div class="lable">{{item.title}}
+          <div class="number mt-3 text-end ">{{item.value}}</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <canvas baseChart [data]="data" width="100" height="100" type="line"></canvas>
+    </div>
+
+  </div>
+
+  }
+
+</div>

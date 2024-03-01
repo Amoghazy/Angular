@@ -4,12 +4,9 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { SidenavComponent } from './component/sidenav/sidenav.component';
-import { HeaderComponent } from './component/header/header.component';
-import { navbarData } from './component/sidenav/nav-data';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-header',
   standalone: true,
   imports: [
     CommonModule,
@@ -18,13 +15,10 @@ import { navbarData } from './component/sidenav/nav-data';
     NzLayoutModule,
     NzMenuModule,
     RouterModule,
-    SidenavComponent,
-    HeaderComponent,
   ],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss',
 })
-export class AppComponent {
-  navbarData = navbarData;
+export class HeaderComponent {
   isCollapsed = false;
 }
