@@ -12,16 +12,54 @@ import { NgChartsModule } from 'ng2-charts';
 })
 export class TopWidgetsComponent {
   topedgit = topedgit;
-  data = {
-    labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: [1, 2, 3, 89, 63, 55, 35, 2, 7],
-        borderColor: '#36A2EB',
-        backgroundColor: '#9BD0F5',
-        tension: 0.4,
+  labels: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+  data = [
+    {
+      label: '',
+      data: [30, 20, 37, 50, 33, 55, 35, 40, 25],
+      borderColor: '#36A2EB',
+      backgroundColor: '#9BD0F5',
+      // borderWidth: 1,
+
+      tension: 0.4,
+      fill: true,
+      pointRadius: 0,
+      pointHitRadius: 10,
+      pointHoverRadius: 0,
+    },
+  ];
+  chartOptions = {
+    maintainAspectRatio: false,
+
+    interaction: {
+      mode: 'index' as const,
+      axis: 'y' as const,
+    },
+    plugins: {
+      legend: {
+        display: false,
       },
-    ],
+    },
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+        ticks: {
+          display: false,
+        },
+      },
+      y: {
+        grid: {
+          display: false,
+        },
+        ticks: {
+          display: false,
+        },
+        border: {
+          display: false,
+        },
+      },
+    },
   };
 }

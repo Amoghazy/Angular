@@ -57,7 +57,7 @@
   color: #fff;
   font-weight: 600;
   font-size: 14px;
-  font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+  font-family: inherit, Helvetica Neue, Arial, Helvetica, sans-serif;
   vertical-align: middle;
 }
 
@@ -83,6 +83,8 @@ nz-content {
   padding: 24px;
   background: #fff;
   height: 100%;
+  overflow: auto;
+  container-type: inline-size;
 }
 .active {
   background-color: #fff;
@@ -93,5 +95,5 @@ nz-content {
   }
 }
 .inner-content {
-  background-color: rgba(80, 123, 127, 0.313);
+  background-color: rgba(119, 147, 150, 0.313);
 }

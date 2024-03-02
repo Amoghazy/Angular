@@ -7,7 +7,7 @@
   margin-left: calc(-0.5 * var(--bs-gutter-x));
   .widget {
     position: relative;
-    width: 325px;
+    width: 280px;
     height: 175px;
     background-color: #fff;
     color: #0b0b0b;
@@ -16,16 +16,12 @@
     box-shadow: -1px 6px 20px 0px #939393;
     display: flex;
 
-    padding: 24px;
-
     .icon {
       font-size: 50px;
     }
 
     .lable {
       font-weight: bold;
-    }
-    .number {
     }
   }
   :nth-child(1) .icon {
