@@ -1,24 +1,33 @@
-<div class="widget-container d-flex flex-wrap">
-
-  @for (item of topedgit; track $index) {
-  <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12 flex-column  widget ">
-    <div class=" p-3 pb-1 w-100 d-flex justify-content-between align-items-start">
-      <div class="icon text-white rounded p-2 fs-3 d-flex align-items-center"><span nz-icon nzType={{item.icon}}
-          nzTheme="outline"></span>
-      </div>
-      <div class="value">
-        <div class="lable">{{item.title}}
-          <div class="number mt-3 text-end ">{{item.value}}</div>
+<!-- <div class="widget-container">
+  <div class="row" fxLayoutGap="20px">
+    @for (item of topedgit; track $index) {
+    <div class="col-xl-3 col-lg-6  widget flex-column " fxFlex="25">
+      <div class=" p-3 pb-1 w-100 d-flex justify-content-between align-items-start">
+        <div class="icon text-white rounded p-2 fs-3 d-flex align-items-center"><span nz-icon nzType={{item.icon}}
+            nzTheme="outline"></span>
+        </div>
+        <div class="value">
+          <div class="lable">{{item.title}}
+            <div class="number mt-3 text-end ">{{item.value}}</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="chart">
-      <canvas height="100px" id="myChart" baseChart [datasets]="data" [labels]="labels" [options]="chartOptions"
-        type="line"></canvas>
+      <div class="chart">
+        <canvas height="100px" id="myChart" baseChart [datasets]="data" [labels]="labels" [options]="chartOptions"
+          type="line"></canvas>
+      </div>
+
     </div>
 
+    }
   </div>
-
-  }
+</div> -->
+<div class="container ">
+  <div class="row g-3 ">
+    <div class="bg-danger col-lg-3 col-md-6 gy-2 p-2 ">Div 1</div>
+    <div class="bg-primary col-lg-3 col-md-6 gy-2 p-2">Div 2</div>
+    <div class="bg-danger col-lg-3 col-md-6 gy-2 p-2">Div 3</div>
+    <div class="bg-primary col-lg-3 col-md-6 gy-2 p-2">Div 4</div>
+  </div>
 
 </div>

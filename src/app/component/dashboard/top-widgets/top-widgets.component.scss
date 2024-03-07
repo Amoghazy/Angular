@@ -7,14 +7,15 @@
   margin-left: calc(-0.5 * var(--bs-gutter-x));
   .widget {
     position: relative;
-    width: 280px;
+    // width: ;
     height: 175px;
     background-color: #fff;
     color: #0b0b0b;
     border-radius: 15px 15px 0px 0px;
-    margin: 10px;
+    // margin: 2px;
     box-shadow: -1px 6px 20px 0px #939393;
     display: flex;
+
 
     .icon {
       font-size: 50px;
