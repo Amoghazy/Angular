@@ -7,7 +7,7 @@
   margin-left: calc(-0.5 * var(--bs-gutter-x));
   .widget {
     position: relative;
-    // width: ;
+    width: 23%;
     height: 175px;
     background-color: #fff;
     color: #0b0b0b;
@@ -38,4 +38,33 @@
   :nth-child(4) .icon {
     background-color: red;
   }
+}
+@media only screen and (max-width: 576px) {
+  .col-md-6{
+
+width: 100% !important;
+  }}
+
+@media only screen and  (min-width: 577px) and (max-width: 768px) {
+  .col-md-6{
+
+width: 100% !important;
+  }
+}
+
+@media only screen and  (min-width: 768px) and (max-width: 992px) {
+  .col-md-6{
+
+width: 100% !important;
+  }
+}
+
+@media only screen and  (min-width: 993px) and (max-width: 1200px) {
+  .col-md-6{
+
+width: 48% !important;
+  }}
+
+@media (min-width: 1201px) {
+  /* Styles for devices with a minimum width of 1201px (e.g., large desktop screens) */
 }

@@ -8,5 +8,5 @@ export interface Iappointement {
   time: string;
   mobile: string;
   doctor: string;
-  injury: string;
+  inurjy: string;
 }

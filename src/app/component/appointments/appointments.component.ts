@@ -4,11 +4,10 @@ import {
   OnChanges,
   OnDestroy,
   OnInit,
-  SimpleChanges,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzMessageService } from 'ng-zorro-antd/message';
@@ -38,16 +37,11 @@ export class AppointmentsComponent implements OnInit, OnDestroy, OnChanges {
     private modal: NzModalService,
     private appointmentsServ: AppointmentsService
   ) {}
+
+  appontemint: Iappointement = {} as Iappointement;
   subscriptions: Subscription[] = [];
   searchText: string = '';
-  name: string = '';
-  email: string = '';
-  date: string = '';
-  time: string = '';
-  mobile: string = '';
-  doctor: string = '';
-  inurjy: string = '';
-  gender: string = '';
+  editAppotBtn: boolean = false;
 
   checked = false;
   indeterminate = false;
@@ -72,27 +66,66 @@ export class AppointmentsComponent implements OnInit, OnDestroy, OnChanges {
       this.subscriptions.push(this.getAllAppointments());
     });
   }
-  showEdit(ele: HTMLElement): void {
-    this.name = ele.childNodes[2].textContent!;
-    this.email = ele.childNodes[3].textContent!;
-    this.gender = ele.childNodes[4].textContent!;
-    this.date = ele.childNodes[5].textContent!;
-    this.time = ele.childNodes[6].textContent!;
-    this.mobile = ele.childNodes[7].textContent!;
-    this.doctor = ele.childNodes[8].textContent!;
-    this.inurjy = ele.childNodes[9].textContent!;
+  showEdit(appoID: number): void {
+    this.editAppotBtn = true;
+    let foundedAppoi: Iappointement | undefined = this.listOfData.find(
+      (app) => app.id == appoID
+    );
+
+    this.appontemint.id = foundedAppoi?.id!;
+    this.appontemint.image = foundedAppoi?.image!;
+    this.appontemint.name = foundedAppoi?.name!;
+    this.appontemint.email = foundedAppoi?.email!;
+    this.appontemint.date = foundedAppoi?.date!;
+    this.appontemint.time = foundedAppoi?.time!;
+    this.appontemint.mobile = foundedAppoi?.mobile!;
+    this.appontemint.doctor = foundedAppoi?.doctor!;
+    this.appontemint.inurjy = foundedAppoi?.inurjy!;
+    this.appontemint.gender = foundedAppoi?.gender!;
 
     this.modal.confirm({
-      nzTitle: 'Are you sure delete this Appointment?',
+      nzClosable: false,
+      nzTitle: 'update Appointement',
       nzContent: this.form,
-      nzOkText: 'Edit',
-      nzOkType: 'primary',
-      nzOkDanger: true,
+      nzOkDisabled: true,
+      nzBodyStyle: {
+        width: 'fit-content',
+        background: ' rgba(255, 255, 255)',
+      },
+
+      nzStyle: { width: 'fit-content', top: '0px' },
+      nzOkText: 'ESC',
 
       nzCancelText: 'Cancle',
     });
   }
+  updateAppoments(formAppo: NgForm) {
+    this.modal.closeAll();
+    this.appointmentsServ
+      .updateAppointement(this.appontemint)
+      .subscribe((data) => {
+        this.getAllAppointments();
+        formAppo.onReset();
+      });
+  }
+  addAppoi(): void {
+    this.editAppotBtn = false;
+    this.modal.confirm({
+      nzClosable: false,
+      nzTitle: 'Add New Appointement',
+      nzContent: this.form,
+      nzOkDisabled: true,
+      nzBodyStyle: {
+        width: 'fit-content',
+        background: ' rgba(255, 255, 255)',
+      },
 
+      nzStyle: { width: 'fit-content', top: '0px' },
+      nzOkText: 'ESC',
+
+      nzCancelText: 'Cancle',
+    });
+  }
   search(): void {
     let filtered = this.listOfData.filter((item) =>
       item.name.toLowerCase().includes(this.searchText.toLowerCase())
@@ -104,42 +137,24 @@ export class AppointmentsComponent implements OnInit, OnDestroy, OnChanges {
     }
   }
   delete(): void {
-    this.listOfData = this.listOfData.filter(
-      (item) => !this.setOfCheckedId.has(item.id)
-    );
+    this.listOfData = this.listOfData.filter((item) => {
+      console.log(item);
+      return !this.setOfCheckedId.has(item.id);
+    });
     this.setOfCheckedId.clear();
     this.checked = false;
   }
-  addAppoi(): void {
-    this.modal.confirm({
-      nzTitle: 'Add New Appointement',
-      nzContent: this.form,
-      nzOkText: 'Add',
-      nzOkType: 'primary',
-      nzOkDanger: true,
-      nzOnOk: () => {
-        let appooiinn: Iappointement = {
-          id: this.listOfData.length + 1,
-          image: 'imga',
-          name: this.name,
-          email: this.email,
-          date: this.date,
-          time: this.time,
-          mobile: this.mobile,
-          doctor: this.doctor,
-          injury: this.inurjy,
-          gender: this.gender,
-        };
 
-        this.appointmentsServ.addAppointement(appooiinn).subscribe((data) => {
-          this.message.create('success', `add success`);
-          this.subscriptions.push(this.getAllAppointments());
-        });
-      },
-      nzCancelText: 'Cancle',
-    });
+  addToAppoments(formAppo: NgForm) {
+    this.modal.closeAll();
+    this.appointmentsServ
+      .addAppointement(this.appontemint)
+      .subscribe((data) => {
+        this.message.create('success', `add succes ESC to close `);
+        this.subscriptions.push(this.getAllAppointments());
+      });
+    formAppo.onReset();
   }
-
   updateCheckedSet(id: number, checked: boolean): void {
     if (checked) {
       this.setOfCheckedId.add(id);

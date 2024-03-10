@@ -29,7 +29,13 @@ export class AppointmentsService {
       this.options
     );
   }
-  updateAppointement(appointement: Iappointement) {}
+  updateAppointement(appointement: Iappointement) {
+    return this.http.put(
+      `${environment.baseUrl}/appoiments/${appointement.id}`,
+      JSON.stringify(appointement),
+      this.options
+    );
+  }
   deleteAppointement(id: number) {
     return this.http.delete(`${environment.baseUrl}/appoiments/${id}`);
   }

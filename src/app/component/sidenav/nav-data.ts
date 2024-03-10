@@ -19,29 +19,21 @@ export const navbarData = [
     icon: 'user',
     label: 'Patients',
   },
-  {
-    routeLink: 'staff',
-    icon: 'usergroup-add',
-    label: 'Staff',
-  },
+
   {
     routeLink: 'Records',
     icon: 'read',
     label: 'Records',
   },
+
   {
-    routeLink: 'charts',
-    icon: 'bar-chart',
-    label: 'Charts',
+    routeLink: 'settings',
+    icon: 'setting',
+    label: 'Settings',
   },
   {
     routeLink: 'logout',
     icon: 'logout',
     label: 'Logout',
-  },
-  {
-    routeLink: 'settings',
-    icon: 'setting',
-    label: 'Settings',
   },
 ];
