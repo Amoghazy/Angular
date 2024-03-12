@@ -38,7 +38,7 @@ filteredListOfData.length > 0 ? filteredListOfData : listOfData"
     <tr #rowAppoin>
       <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
       <td>
-        <img style="width:2rem ;" src="../../../assets/avatar.png" alt="image">
+        <img style="width:2rem ;" src="../../../assets/avatar.png" alt="images">
       </td>
       <td>{{ data.name }}</td>
       <td>{{ data.email }}</td>
