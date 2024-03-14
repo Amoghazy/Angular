@@ -6,5 +6,6 @@ export interface IDoctor {
   degree: string;
   email: string;
   mobile: string;
+  address: string;
   joiningDate: string;
 }

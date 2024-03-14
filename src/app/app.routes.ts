@@ -7,6 +7,9 @@ import { DoctorsComponent } from './component/doctors/doctors.component';
 import { PatientsComponent } from './component/patients/patients.component';
 import { StaffComponent } from './component/staff/staff.component';
 import { RecordsComponent } from './component/records/records.component';
+import { PrescriptionComponent } from './component/prescription/prescription.component';
+import { DoctorDashboardComponent } from './component/doctor-dashboard/doctor-dashboard.component';
+import { ContactGridComponent } from './component/contact-grid/contact-grid.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/welcome' },
@@ -14,29 +17,51 @@ export const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent,
+    title: 'Settings',
+  },
+
+  {
+    path: 'contacts',
+    component: ContactGridComponent,
+    title: 'Contacts',
+  },
+  {
+    path: 'doctordashboard',
+    component: DoctorDashboardComponent,
+    title: 'Doctor Dashboard',
+  },
+  {
+    path: 'prescription/:id',
+    component: PrescriptionComponent,
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
+    title: 'Dashboard',
   },
   {
     path: 'appointments',
     component: AppointmentsComponent,
+    title: 'Appointments',
   },
   {
     path: 'doctors',
     component: DoctorsComponent,
+    title: 'Doctors',
   },
   {
     path: 'patients',
     component: PatientsComponent,
+    title: 'Patients',
   },
   {
     path: 'staff',
     component: StaffComponent,
+    title: 'Staff',
   },
   {
     path: 'records',
     component: RecordsComponent,
+    title: 'Records',
   },
 ];

@@ -5,6 +5,11 @@ export const navbarData = [
     label: 'Dashboard',
   },
   {
+    routeLink: 'doctordashboard',
+    icon: 'heart',
+    label: 'Doctor Dashboard',
+  },
+  {
     routeLink: 'appointments',
     icon: 'container',
     label: 'Appointments',
@@ -21,15 +26,9 @@ export const navbarData = [
   },
 
   {
-    routeLink: 'Records',
-    icon: 'read',
-    label: 'Records',
-  },
-
-  {
-    routeLink: 'settings',
-    icon: 'setting',
-    label: 'Settings',
+    routeLink: 'contacts',
+    icon: 'phone',
+    label: 'Contacts',
   },
   {
     routeLink: 'logout',

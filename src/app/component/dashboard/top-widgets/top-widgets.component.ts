@@ -30,7 +30,7 @@ export class TopWidgetsComponent {
   ];
   chartOptions = {
     maintainAspectRatio: false,
-
+    aspectRatio: null,
     interaction: {
       mode: 'index' as const,
       axis: 'y' as const,

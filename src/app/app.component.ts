@@ -4,7 +4,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { SidenavComponent } from './component/sidenav/sidenav.component';
+
 import { HeaderComponent } from './component/header/header.component';
 import { navbarData } from './component/sidenav/nav-data';
 
@@ -18,7 +18,7 @@ import { navbarData } from './component/sidenav/nav-data';
     NzLayoutModule,
     NzMenuModule,
     RouterModule,
-    SidenavComponent,
+
     HeaderComponent,
   ],
   templateUrl: './app.component.html',

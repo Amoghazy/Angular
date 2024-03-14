@@ -7,13 +7,14 @@
   <div class=" p-1 me-2">
     <button [ngClass]="{ 'text-white btn': true , }" (click)="delete()" [hidden]=" setOfCheckedId.size ==0">
       <span nz-icon nzType="delete" nzTheme="fill" class="bg-danger icon rounded-circle p-2"></span></button>
-    <button [ngClass]="{ 'text-white  btn  ': true , }" (click)="addAppoi()"> <span nz-icon nzType="plus"
+    <button [ngClass]="{ 'text-white  btn  ': true , }" (click)="addDoctor()"> <span nz-icon nzType="plus"
         nzTheme="outline" class="bg-primary text-white icon rounded-circle p-2 "></span></button>
 
   </div>
 </div>
 
-<nz-table style="overflow: auto;" #rowSelectionTable nzShowSizeChanger [nzData]="
+<nz-table [nzTitle]="'Doctors'" [nzLoading]="listOfData.length == 0" style="overflow: auto;" #rowSelectionTable
+  nzShowSizeChanger [nzData]="
 filteredListOfData.length > 0 ? filteredListOfData : listOfData"
   (nzCurrentPageDataChange)="onCurrentPageDataChange($event)" nzShowFilter>
   <thead>
@@ -48,8 +49,9 @@ filteredListOfData.length > 0 ? filteredListOfData : listOfData"
       <td>{{ data.mobile }}</td>
       <td>{{ data.joiningDate | date:"shortDate"}}</td>
 
-      <td class=""><span class="text-danger action" nz-icon nzType="delete" nzTheme="outline"></span>
-        <span class="text-primary action" nz-icon nzType="edit" nzTheme="outline"></span>
+      <td class=""><span (click)="showDeleteConfirm(data.id)" class="text-danger action" nz-icon nzType="delete"
+          nzTheme="outline"></span>
+        <span (click)="editDoctor(data.id)" class="text-primary action" nz-icon nzType="edit" nzTheme="outline"></span>
       </td>
 
     </tr>
@@ -66,7 +68,7 @@ filteredListOfData.length > 0 ? filteredListOfData : listOfData"
         <div class="card">
           <h3>Doctor</h3>
 
-          <form class="form-card" #appoinForm="ngForm">
+          <form class="form-card" #DRForm="ngForm">
             <div class="row justify-content-between text-left">
               <div class="form-group col-sm-6 flex-column d-flex">
                 <label class="form-control-label px-3">
@@ -95,7 +97,7 @@ filteredListOfData.length > 0 ? filteredListOfData : listOfData"
                 <label class="form-control-label px-3">
                   Joining Date<span class="text-danger"> *</span></label>
 
-                <input [(ngModel)]="doctorInfo.joiningDate" #joiningDate="ngModel" required type="text" id="joiningDate"
+                <input [(ngModel)]="doctorInfo.joiningDate" #joiningDate="ngModel" required type="date" id="joiningDate"
                   name="joiningDate" placeholder="">
 
               </div>
@@ -103,38 +105,27 @@ filteredListOfData.length > 0 ? filteredListOfData : listOfData"
             <div class="row justify-content-between text-left">
               <div class="form-group col-sm-6 flex-column d-flex"> <label
                   class="form-control-label px-3">Specialization<span class="text-danger"> *</span></label> <input
-                  required [(ngModel)]="doctorInfo.specialization" #specialization="ngModel" type="text"
-                  id="specialization" name="specialization">
+                  required [(ngModel)]="doctorInfo.specialization" placeholder="one" #specialization="ngModel"
+                  type="text" id="specialization" name="specialization">
               </div>
               <div class="form-group col-sm-6 flex-column d-flex">
                 <label class="form-control-label px-3">
                   Degree<span class="text-danger"> *</span></label>
 
                 <input [(ngModel)]="doctorInfo.degree" #degree="ngModel" type="text" id="degree" name="degree" required
-                  placeholder="Enter your time">
+                  placeholder="BHMS">
               </div>
             </div>
-            <!-- <div class="row justify-content-between text-left">
-              <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Doctor<span
-                    class="text-danger"> *</span></label> <input required [(ngModel)]="doctorInfo.doctor"
-                  #doctor="ngModel" type="
-                  text" id="doctor" name="doctor"> </div>
-              <div class="form-group col-sm-6 flex-column d-flex">
-                <label class="form-control-label px-3">
-                  Inurjy<span class="text-danger"> *</span></label>
 
-                <input [(ngModel)]="doctorInfo.inurjy" #time="ngModel" type="text" id="Inurjy" name="Inurjy" required
-                  placeholder="Enter your Inurjy">
-              </div>
-            </div> -->
 
-            <div class="d-grid gap-2">
-              @if (!editAppotBtn) {
-              <button type="button" [disabled]="appoinForm.invalid" class="btn btn-primary">
+            <div class="d-grid gap-2 mt-2">
+              @if (!editDRBtn) {
+              <button (click)="confirmAddDoctor(DRForm)" type="button" [disabled]="DRForm.invalid"
+                class="btn btn-primary">
                 Confirm
               </button>}
               @else {
-              <button type="button" [disabled]="appoinForm.invalid" class="btn btn-primary">
+              <button type="button" (click)="updateDoctor(DRForm)" [disabled]="DRForm.invalid" class="btn btn-primary">
                 Update
               </button>
 

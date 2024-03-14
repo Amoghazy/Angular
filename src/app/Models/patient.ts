@@ -1,12 +1,11 @@
-export interface Iappointement {
+export interface IPatient {
   image: string;
   id: number;
   name: string;
   email: string;
   gender: string;
-  date: string;
-  time: string;
+  dateOfBirth: string;
+  bloodGroup: string;
+
   mobile: string;
-  doctor: string;
-  injury: string;
 }

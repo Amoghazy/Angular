@@ -13,7 +13,7 @@
   </div>
 </div>
 
-<nz-table style="overflow: auto;" #rowSelectionTable nzShowSizeChanger [nzData]="
+<nz-table [nzTitle]="'Appointments'" style="overflow: auto;" #rowSelectionTable nzShowSizeChanger [nzData]="
 filteredListOfData.length > 0 ? filteredListOfData : listOfData"
   (nzCurrentPageDataChange)="onCurrentPageDataChange($event)" nzShowFilter>
   <thead>
@@ -47,7 +47,7 @@ filteredListOfData.length > 0 ? filteredListOfData : listOfData"
       <td>{{ data.time }}</td>
       <td>{{ data.mobile }}</td>
       <td>{{ data.doctor }}</td>
-      <td>{{ data.inurjy }}</td>
+      <td>{{ data.injury }}</td>
       <td class=""><span class="text-danger action" nz-icon nzType="delete" nzTheme="outline"
           (click)="showDeleteConfirm(data.id)"></span>
         <span (click)="showEdit(data.id)" class="text-primary action" nz-icon nzType="edit" nzTheme="outline"></span>
@@ -124,9 +124,9 @@ filteredListOfData.length > 0 ? filteredListOfData : listOfData"
                   text" id="doctor" name="doctor"> </div>
               <div class="form-group col-sm-6 flex-column d-flex">
                 <label class="form-control-label px-3">
-                  Inurjy<span class="text-danger"> *</span></label>
+                  injury<span class="text-danger"> *</span></label>
 
-                <input [(ngModel)]="appontemint.inurjy" #time="ngModel" type="text" id="Inurjy" name="Inurjy" required
+                <input [(ngModel)]="appontemint.injury" #injury="ngModel" type="text" id="injury" name="injury" required
                   placeholder="Enter your Inurjy">
               </div>
             </div>

@@ -32,6 +32,7 @@ import { DoctorService } from '../../services/doctor.service';
 })
 export class DoctorsComponent implements OnInit, OnDestroy, OnChanges {
   @ViewChild('form') form!: TemplateRef<any>;
+  @ViewChild('DRForm') public DRForm!: NgForm;
   constructor(
     private message: NzMessageService,
     private modal: NzModalService,
@@ -41,7 +42,7 @@ export class DoctorsComponent implements OnInit, OnDestroy, OnChanges {
   doctorInfo: IDoctor = {} as IDoctor;
   subscriptions: Subscription[] = [];
   searchText: string = '';
-  editAppotBtn: boolean = false;
+  editDRBtn: boolean = false;
 
   checked = false;
   indeterminate = false;
@@ -50,66 +51,69 @@ export class DoctorsComponent implements OnInit, OnDestroy, OnChanges {
   setOfCheckedId = new Set<number>();
   filteredListOfData: IDoctor[] = [];
 
-  // showDeleteConfirm(id: number): void {
-  //   this.modal.confirm({
-  //     nzTitle: 'Are you sure delete this Appointment?',
-  //     nzContent: `<p class ="h5 "> for this user </p>`,
-  //     nzOkText: 'Yes',
-  //     nzOkType: 'primary',
-  //     nzOkDanger: true,
-  //     nzOnOk: () => this.deleteAppoin(id),
-  //     nzCancelText: 'No',
-  //   });
-  // }
-  // deleteAppoin(id: number): void {
-  //   this.doctorSrv.deleteAppointement(id).subscribe((data) => {
-  //     this.subscriptions.push(this.getAllDoctors());
-  //   });
-  // }
-  // showEdit(appoID: number): void {
-  //   this.editAppotBtn = true;
-  //   let foundedAppoi: IDoctor | undefined = this.listOfData.find(
-  //     (app) => app.id == appoID
-  //   );
+  showDeleteConfirm(id: number): void {
+    console.log(id);
+    this.modal.confirm({
+      nzTitle: 'Are you sure delete this Doctor?',
+      nzContent: `<p class ="h5 "> for this user </p>`,
+      nzOkText: 'Yes',
+      nzOkType: 'primary',
+      nzOkDanger: true,
+      nzOnOk: () => this.deleteDR(id),
+      nzCancelText: 'No',
+    });
+  }
+  deleteDR(id: number): void {
+    this.doctorSrv.deleteDoctor(id).subscribe((data) => {
+      this.subscriptions.push(this.getAllDoctors());
+    });
+  }
+  editDoctor(doctorID: number): void {
+    this.editDRBtn = true;
+    let foundedDR: IDoctor | undefined = this.listOfData.find(
+      (dr) => dr.id == doctorID
+    );
 
-  //   // this.appontemint.id = foundedAppoi?.id!;
-  //   // this.appontemint.image = foundedAppoi?.image!;
-  //   // this.appontemint.name = foundedAppoi?.name!;
-  //   // this.appontemint.email = foundedAppoi?.email!;
-  //   // this.appontemint.date = foundedAppoi?.date!;
-  //   // this.appontemint.time = foundedAppoi?.time!;
-  //   // this.appontemint.mobile = foundedAppoi?.mobile!;
-  //   // this.appontemint.doctor = foundedAppoi?.doctor!;
-  //   // this.appontemint.inurjy = foundedAppoi?.inurjy!;
-  //   // this.appontemint.gender = foundedAppoi?.gender!;
+    this.doctorInfo.id = foundedDR?.id!;
+    this.doctorInfo.image = foundedDR?.image!;
+    this.doctorInfo.name = foundedDR?.name!;
+    this.doctorInfo.email = foundedDR?.email!;
+    this.doctorInfo.joiningDate = foundedDR?.joiningDate!;
 
-  //   this.modal.confirm({
-  //     nzClosable: false,
-  //     nzTitle: 'update Appointement',
-  //     nzContent: this.form,
-  //     nzOkDisabled: true,
-  //     nzBodyStyle: {
-  //       width: 'fit-content',
-  //       background: ' rgba(255, 255, 255)',
-  //     },
+    this.doctorInfo.mobile = foundedDR?.mobile!;
+    this.doctorInfo.specialization = foundedDR?.specialization!;
+    this.doctorInfo.degree = foundedDR?.degree!;
 
-  //     nzStyle: { width: 'fit-content', top: '0px' },
-  //     nzOkText: 'ESC',
+    this.modal.confirm({
+      nzClosable: false,
+      nzTitle: 'update DR INFO',
+      nzContent: this.form,
+      nzOkDisabled: true,
+      nzBodyStyle: {
+        width: 'fit-content',
+        background: ' rgba(255, 255, 255)',
+      },
 
-  //     nzCancelText: 'Cancle',
-  //   });
-  // }
-  // // updateAppoments(formAppo: NgForm) {
-  // //   this.modal.closeAll();
-  // //   this.doctorSrv
-  // //     .updateAppointement()
-  // //     .subscribe((data) => {
-  // //       this.getAllDoctors();
-  // //       formAppo.onReset();
-  // //     });
-  // // }
-  addAppoi(): void {
-    this.editAppotBtn = false;
+      nzStyle: { width: 'fit-content', top: '0px' },
+      nzOkText: 'ESC',
+
+      nzCancelText: 'Cancle',
+      nzOnCancel: () => {
+        console.log(this.DRForm);
+        this.DRForm.onReset();
+        console.log(this.DRForm);
+      },
+    });
+  }
+  updateDoctor(formAppo: NgForm) {
+    this.modal.closeAll();
+    this.doctorSrv.updateDoctor(this.doctorInfo).subscribe((data) => {
+      this.getAllDoctors();
+      formAppo.onReset();
+    });
+  }
+  addDoctor(): void {
+    this.editDRBtn = false;
     this.modal.confirm({
       nzClosable: false,
       nzTitle: 'Add New Appointement',
@@ -126,6 +130,14 @@ export class DoctorsComponent implements OnInit, OnDestroy, OnChanges {
       nzCancelText: 'Cancle',
     });
   }
+  confirmAddDoctor(formDR: NgForm): void {
+    this.modal.closeAll();
+    this.doctorSrv.addDoctor(this.doctorInfo).subscribe((data) => {
+      this.message.create('success', `add succes ESC to close `);
+      this.subscriptions.push(this.getAllDoctors());
+    });
+    formDR.onReset();
+  }
   search(): void {
     let filtered = this.listOfData.filter((item) =>
       item.name.toLowerCase().includes(this.searchText.toLowerCase())
@@ -138,23 +150,12 @@ export class DoctorsComponent implements OnInit, OnDestroy, OnChanges {
   }
   delete(): void {
     this.listOfData = this.listOfData.filter((item) => {
-      console.log(item);
       return !this.setOfCheckedId.has(item.id);
     });
     this.setOfCheckedId.clear();
     this.checked = false;
   }
 
-  // addToAppoments(formAppo: NgForm) {
-  //   this.modal.closeAll();
-  //   this.doctorSrv
-  //     .addAppointement(this.appontemint)
-  //     .subscribe((data) => {
-  //       this.message.create('success', `add succes ESC to close `);
-  //       this.subscriptions.push(this.getAllDoctors());
-  //     });
-  //   formAppo.onReset();
-  // }
   updateCheckedSet(id: number, checked: boolean): void {
     if (checked) {
       this.setOfCheckedId.add(id);

@@ -80,7 +80,7 @@ export class AppointmentsComponent implements OnInit, OnDestroy, OnChanges {
     this.appontemint.time = foundedAppoi?.time!;
     this.appontemint.mobile = foundedAppoi?.mobile!;
     this.appontemint.doctor = foundedAppoi?.doctor!;
-    this.appontemint.inurjy = foundedAppoi?.inurjy!;
+    this.appontemint.injury = foundedAppoi?.injury!;
     this.appontemint.gender = foundedAppoi?.gender!;
 
     this.modal.confirm({

@@ -42,14 +42,6 @@ input {
   font-weight: 300;
 }
 
-textarea:focus {
-  -moz-box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-  border: 1px solid #00bcd4;
-  outline-width: 0;
-  font-weight: 400;
-}
 .btn-block {
   text-transform: uppercase;
   font-size: 15px !important;

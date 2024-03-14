@@ -39,4 +39,13 @@ export class AppointmentsService {
   deleteAppointement(id: number) {
     return this.http.delete(`${environment.baseUrl}/appoiments/${id}`);
   }
+  getAppointmentById(id: any) {
+    const url = `${environment.baseUrl}/appoiments?id=${id}`;
+    return this.http.get<any>(url);
+  }
+  getTodayAppointments(): Observable<any[]> {
+    const today = new Date().toISOString().split('T')[0];
+    const url = `${environment.baseUrl}/appoiments?date=${today}`;
+    return this.http.get<any[]>(url);
+  }
 }
