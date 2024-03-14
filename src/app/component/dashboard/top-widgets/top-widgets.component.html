@@ -1,0 +1,29 @@
+<div class="row">
+  @for (item of topedgit; track $index) {
+  <div class="col-md-6 col-xl-3 gy-2">
+    <div class="bg-white rounded p-2">
+
+
+      <div class="row p-3">
+        <div class="col-md-3">
+          <i nz-icon nzType="{{item.icon}}" nzTheme="outline" class="rounded p-2 m-2 chartIcon icon fs-3"></i>
+        </div>
+        <div class="col-md-9 py-2">
+          <div style="text-align: end;" class="gy-2" ><p style="font-weight: 600;">{{item.title}}</p></div>
+          <div style="text-align: end;"  class="gy-2" ><h6>{{item.value}}</h6></div>
+        </div>
+      </div>
+      
+    
+
+      <div>
+        <canvas height="150px" id="myChart" baseChart [datasets]="data" [labels]="labels" [options]="chartOptions"
+          type="line"></canvas>
+      </div>
+    </div>
+ 
+
+  </div>
+
+  }
+</div>
