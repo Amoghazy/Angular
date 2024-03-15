@@ -7,14 +7,14 @@
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
       @for (item of navbarData; track $index) {
-      @if (item.routeLink =="dashboard") {
-      <li nz-submenu nzOpen [routerLink]="[item.routeLink]" nzTitle="{{ item.label }}" nzIcon="{{ item.icon }}">
-        <ul>
-          <li nz-menu-item>option5</li>
 
-        </ul>
+
+      <li nz-menu-item [routerLink]="[item.routeLink]">
+        <span nz-icon nzType="{{item.icon }}"></span>
+        <span>{{ item.label }}</span>
       </li>
-      }
+
+
 
       }
     </ul>
@@ -33,7 +33,7 @@
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul nz-menu>
             <li nz-menu-item>profile</li>
-            <li nz-menu-item>logout</li>
+            <li nz-menu-item >logout</li>
           </ul>
         </nz-dropdown-menu>
       </div>
