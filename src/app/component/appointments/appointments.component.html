@@ -12,51 +12,52 @@
 
   </div>
 </div>
-
-<nz-table [nzTitle]="'Appointments'" style="overflow: auto;" #rowSelectionTable nzShowSizeChanger [nzData]="
+<div class="table-responsive bg-white">
+  <nz-table [nzTitle]="'Appointments'" style=" overflow: auto;" #rowSelectionTable nzShowSizeChanger [nzData]="
 filteredListOfData.length > 0 ? filteredListOfData : listOfData"
-  (nzCurrentPageDataChange)="onCurrentPageDataChange($event)" nzShowFilter>
-  <thead>
-    <tr>
-      <th [(nzChecked)]="checked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="onAllChecked($event)"></th>
-      <th>Image</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Gender</th>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Mobile</th>
-      <th>Doctor</th>
-      <th>Injury/Condition </th>
-      <th>Actions</th>
-    </tr>
+    (nzCurrentPageDataChange)="onCurrentPageDataChange($event)" nzShowFilter>
+    <thead>
+      <tr>
+        <th [(nzChecked)]="checked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="onAllChecked($event)"></th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Mobile</th>
+        <th>Doctor</th>
+        <th>Injury/Condition </th>
+        <th>Actions</th>
+      </tr>
 
-  </thead>
-  <tbody>
-    @for (data of rowSelectionTable.data; track $index) {
+    </thead>
+    <tbody>
+      @for (data of rowSelectionTable.data; track $index) {
 
-    <tr #rowAppoin>
-      <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
-      <td>
-        <img style="width:2rem ;" src="../../../assets/avatar.png" alt="images">
-      </td>
-      <td>{{ data.name }}</td>
-      <td>{{ data.email }}</td>
-      <td>{{ data.gender }}</td>
-      <td>{{ data.date | date:"shortDate"}}</td>
-      <td>{{ data.time }}</td>
-      <td>{{ data.mobile }}</td>
-      <td>{{ data.doctor }}</td>
-      <td>{{ data.injury }}</td>
-      <td class=""><span class="text-danger action" nz-icon nzType="delete" nzTheme="outline"
-          (click)="showDeleteConfirm(data.id)"></span>
-        <span (click)="showEdit(data.id)" class="text-primary action" nz-icon nzType="edit" nzTheme="outline"></span>
-      </td>
+      <tr #rowAppoin>
+        <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
+        <td>
+          <img style="width:2rem ;" src="../../../assets/avatar.png" alt="images">
+        </td>
+        <td>{{ data.name }}</td>
+        <td>{{ data.email }}</td>
+        <td>{{ data.gender }}</td>
+        <td>{{ data.date | date:"shortDate"}}</td>
+        <td>{{ data.time }}</td>
+        <td>{{ data.mobile }}</td>
+        <td>{{ data.doctor }}</td>
+        <td>{{ data.injury }}</td>
+        <td class=" bg-white"><span class="text-danger action" nz-icon nzType="delete" nzTheme="outline"
+            (click)="showDeleteConfirm(data.id)"></span>
+          <span (click)="showEdit(data.id)" class="text-primary action" nz-icon nzType="edit" nzTheme="outline"></span>
+        </td>
 
-    </tr>
-    }
-  </tbody>
-</nz-table>
+      </tr>
+      }
+    </tbody>
+  </nz-table>
+</div>
 
 <ng-template #form>
   <div class="container-fluid px-1  mx-auto" style="width: max-content;">

@@ -24,7 +24,7 @@ import { Subscription } from 'rxjs';
 })
 export class PatientsComponent implements OnInit {
   @ViewChild('form') form!: TemplateRef<any>;
-  @ViewChild('DRForm') public PatientForm!: NgForm;
+  @ViewChild('PatientForm') public PatientForm!: NgForm;
   constructor(
     private message: NzMessageService,
     private modal: NzModalService,
@@ -70,7 +70,8 @@ export class PatientsComponent implements OnInit {
     this.patientINFO.image = foundedDR?.image!;
     this.patientINFO.name = foundedDR?.name!;
     this.patientINFO.email = foundedDR?.email!;
-
+    this.patientINFO.bloodGroup = foundedDR?.bloodGroup!;
+    this.patientINFO.dateOfBirth = foundedDR?.dateOfBirth!;
     this.patientINFO.mobile = foundedDR?.mobile!;
 
     this.patientINFO.gender = foundedDR?.gender!;
@@ -90,15 +91,15 @@ export class PatientsComponent implements OnInit {
 
       nzCancelText: 'Cancle',
       nzOnCancel: () => {
-        this.PatientForm.onReset();
+        this.PatientForm.reset();
       },
     });
   }
-  updateDoctor() {
+  updateDoctor(PatientForm: NgForm): void {
     this.modal.closeAll();
     this.patientSRV.updatePatient(this.patientINFO).subscribe((data) => {
       this.getAllDoctors();
-      this.PatientForm.onReset();
+      PatientForm.onReset();
     });
   }
   addDoctor(): void {
@@ -119,13 +120,13 @@ export class PatientsComponent implements OnInit {
       nzCancelText: 'Cancle',
     });
   }
-  confirmAddDoctor(): void {
+  confirmAddDoctor(PatientForm: NgForm): void {
     this.modal.closeAll();
     this.patientSRV.addPatient(this.patientINFO).subscribe((data) => {
       this.message.create('success', `add succes ESC to close `);
       this.subscriptions.push(this.getAllDoctors());
     });
-    this.PatientForm.onReset();
+    PatientForm.onReset();
   }
   search(): void {
     let filtered = this.listOfData.filter((item) =>

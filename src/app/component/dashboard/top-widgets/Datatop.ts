@@ -2,21 +2,21 @@ export const topedgit = [
   {
     title: 'Appointments',
     value: 650,
-    icon: 'line-chart',
+    icon: 'clock-circle',
   },
   {
     title: 'New Patients',
     value: 295,
-    icon: 'line-chart',
+    icon: 'user',
   },
   {
     title: 'Operations',
     value: 356,
-    icon: 'line-chart',
+    icon: 'scissor',
   },
   {
     title: 'Earning',
     value: 45784,
-    icon: 'line-chart',
+    icon: 'money-collect',
   },
 ];

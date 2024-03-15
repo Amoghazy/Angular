@@ -2,35 +2,41 @@
   <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
     [nzTrigger]="null">
     <div class="sidebar-logo">
-
-      <img src="https://www.einfosoft.com/templates/admin/cliniva/source/light/assets/images/logo.png" alt="logo">
+      <img src="https://www.einfosoft.com/templates/admin/cliniva/source/light/assets/images/logo.png" alt="logo" />
       <h1>ُElhakim</h1>
-
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
       @for (item of navbarData; track $index) {
+      @if (item.routeLink =="dashboard") {
+      <li nz-submenu nzOpen [routerLink]="[item.routeLink]" nzTitle="{{ item.label }}" nzIcon="{{ item.icon }}">
+        <ul>
+          <li nz-menu-item>option5</li>
 
-
-      <li nz-submenu nzOpen [routerLink]="[item.routeLink]" nzTitle={{item.label}} nzIcon={{item.icon}}>
-
-
-
-
+        </ul>
       </li>
       }
 
-
+      }
     </ul>
   </nz-sider>
   <nz-layout>
     <nz-header>
       <div class="app-header">
-        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-          <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
-        </span>
-
+        <div>
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
+          </span>
+        </div>
+        <div class="me-4">
+          <nz-avatar nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" nzIcon="user"></nz-avatar>
+        </div>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item>profile</li>
+            <li nz-menu-item>logout</li>
+          </ul>
+        </nz-dropdown-menu>
       </div>
-
     </nz-header>
     <nz-content>
       <div class="inner-content">
@@ -39,25 +45,3 @@
     </nz-content>
   </nz-layout>
 </nz-layout>
-<!-- <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-  <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
-    <ul>
-      <li nz-menu-item nzMatchRouter>
-        <a routerLink="/welcome" >Welcome</a>
-      </li>
-      <li nz-menu-item nzMatchRouter>
-        <a>Monitor</a>
-      </li>
-      <li nz-menu-item nzMatchRouter>
-        <a>Workplace</a>
-      </li>
-    </ul>
-  </li>
-  <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
-    <ul>
-      <li nz-menu-item nzMatchRouter>
-        <a>Basic Form</a>
-      </li>
-    </ul>
-  </li>
-</ul> -->

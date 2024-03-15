@@ -1,4 +1,4 @@
-<div class="widget-container d-flex flex-wrap " style="gap: 21px;">
+<div class="widget-container ps-3 d-flex flex-wrap " style="gap: 21px;">
   @for (item of topedgit; track $index) {
   <div class=" col-md-6  widget flex-column">
     <div class=" p-3 pb-1 w-100 d-flex justify-content-between align-items-start">
@@ -11,10 +11,11 @@
         </div>
       </div>
     </div>
-    <div class="chart">
+    <div class="chart" style="width: 100%;">
       <canvas height="100px" id="myChart" baseChart [datasets]="data" [labels]="labels" [options]="chartOptions"
         type="line"></canvas>
     </div>
+
 
   </div>
 

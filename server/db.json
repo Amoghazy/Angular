@@ -2,53 +2,13 @@
   "appoiments": [
     {
       "image": "https://www.writergirl.com/wp-content/uploads/2014/11/Doctor-790X1024.jpg",
-      "id": "4",
-      "patientId": "1",
-      "doctorId": "2",
-      "report": {
-        "medicines": [
-          {
-            "name": "value1",
-            "dosage": "value2",
-            "instructions": "value3"
-          },
-          {
-            "name": "value1",
-            "dosage": "value2",
-            "instructions": "value3"
-          },
-          {
-            "name": "value1",
-            "dosage": "value2",
-            "instructions": "value3"
-          },
-          {
-            "name": "value1",
-            "dosage": "value2",
-            "instructions": "value3"
-          }
-        ],
-        "prescription": "At w3schools.com you will learn how to At w3schools.com you will learn how toAt w3schools.com you will learn how toAt w3schools.com you will learn how toAt w3schools.com you will learn how toAt w3schools.com you will learn how tomake a website. They offer free tutorials in all web development technologies.",
-        "symptoms": "At w3schools.com you will learn how to At w3schools.com you will learn how toAt w3schools.com you will learn how toAt w3schools.com you will learn how toAt w3schools.com you will learn how toAt w3schools.com you will learn how tomake a website. They offer free tutorials in all web development technologies."
-      },
-      "name": "Emily Brown",
-      "email": "emilybrown@example.com",
-      "gender": "Female",
-      "date": "2024-03-14",
-      "time": "04:45 PM",
-      "mobile": "8901234567",
-      "doctor": "Dr. Martinez",
-      "injury": "Migraine"
-    },
-    {
-      "image": "https://www.writergirl.com/wp-content/uploads/2014/11/Doctor-790X1024.jpg",
       "id": "5",
-      "patientId": "2",
+      "patientId": null,
       "doctorId": "1",
       "name": "Michael Johnson",
       "email": "michaeljohnson@example.com",
       "gender": "Male",
-      "date": "2024-03-13",
+      "date": "2024-03-15",
       "time": "10:30 AM",
       "mobile": "5678901234",
       "doctor": "Dr. Thompson",
@@ -83,12 +43,12 @@
     {
       "image": "https://www.writergirl.com/wp-content/uploads/2014/11/Doctor-790X1024.jpg",
       "id": "6",
-      "patientId": "2",
+      "patientId": null,
       "doctorId": "1",
       "name": "Sarah Davis",
       "email": "sarahdavis@example.com",
       "gender": "Female",
-      "date": "2024-03-13",
+      "date": "2024-03-15",
       "time": "01:15 PM",
       "mobile": "9012345678",
       "doctor": "Dr. Wilson",
@@ -128,7 +88,7 @@
       "name": "James Miller",
       "email": "jamesmiller@example.com",
       "gender": "Male",
-      "date": "2024-03-09",
+      "date": "2024-03-15",
       "time": "03:30 PM",
       "mobile": "6789012345",
       "doctor": "Dr. Lee",
@@ -243,7 +203,7 @@
     {
       "image": "https://www.writergirl.com/wp-content/uploads/2014/11/Doctor-790X1024.jpg",
       "id": "10",
-      "patientId": "2",
+      "patientId": null,
       "doctorId": "2",
       "name": "Sophia Walker",
       "email": "sophiawalker@example.com",
@@ -283,7 +243,7 @@
     {
       "image": "https://www.writergirl.com/wp-content/uploads/2014/11/Doctor-790X1024.jpg",
       "id": "11",
-      "patientId": "2",
+      "patientId": null,
       "doctorId": "3",
       "name": "Matthew Turner",
       "email": "matthewturner@example.com",
@@ -323,7 +283,7 @@
     {
       "image": "https://www.writergirl.com/wp-content/uploads/2014/11/Doctor-790X1024.jpg",
       "id": "12",
-      "patientId": "2",
+      "patientId": null,
       "doctorId": "1",
       "name": "Olivia Taylor",
       "email": "oliviataylor@example.com",
@@ -362,7 +322,7 @@
     },
     {
       "id": "13",
-      "patientId": "2",
+      "patientId": null,
       "doctorId": "1",
       "image": "https://www.writergirl.com/wp-content/uploads/2014/11/Doctor-790X1024.jpg",
       "name": "ahmed moghazy",
@@ -655,40 +615,14 @@
   ],
   "patients": [
     {
-      "image": "https://www.writergirl.com/wp-content/uploads/2014/11/Doctor-790X1024.jpg",
-      "id": "1",
-      "name": "David Williams",
-      "email": "davidwilliams@example.com",
-      "address": "Egypt Fayoum City Sinnoures",
-      "dateOfBirth": "1997-09-30",
-      "gender": "Male",
-      "bloodGroup": "A+",
-      "treatement": "Fever",
-      "mobile": "0123456789"
-    },
-    {
-      "image": "https://www.writergirl.com/wp-content/uploads/2014/11/Doctor-790X1024.jpg",
-      "id": "2",
-      "name": "Williams",
-      "email": "davidwilliams@example.com",
-      "address": "Egypt Fayoum City Sinnoures",
-      "dateOfBirth": "1997-09-30",
-      "gender": "Male",
-      "bloodGroup": "A+",
-      "treatement": "Fever",
-      "mobile": "0123456789"
-    },
-    {
-      "image": "https://www.writergirl.com/wp-content/uploads/2014/11/Doctor-790X1024.jpg",
       "id": "3",
-      "name": "Khalid",
+      "image": "https://www.writergirl.com/wp-content/uploads/2014/11/Doctor-790X1024.jpg",
+      "name": "Khalid aaa",
       "email": "Khalid@example.com",
-      "address": "Egypt Fayoum City Sinnoures",
-      "dateOfBirth": "1997-09-30",
-      "gender": "Male",
       "bloodGroup": "A+",
-      "treatement": "Fever",
-      "mobile": "0123456789"
+      "dateOfBirth": "1997-09-30",
+      "mobile": "01234567890",
+      "gender": "Male"
     },
     {
       "image": "https://www.writergirl.com/wp-content/uploads/2014/11/Doctor-790X1024.jpg",
@@ -771,6 +705,35 @@
       "bloodGroup": "A+",
       "treatement": "Fever",
       "mobile": "0123456789"
+    },
+    {
+      "id": "f2f0",
+      "name": "tarek moghazy",
+      "email": "ahmedmoghazy9399@gmail.com",
+      "mobile": "01030229525",
+      "gender": "Male",
+      "dateOfBirth": "2024-03-27",
+      "bloodGroup": "AB+"
+    },
+    {
+      "id": "3",
+      "image": "https://www.writergirl.com/wp-content/uploads/2014/11/Doctor-790X1024.jpg",
+      "name": "ahmed moghazy",
+      "email": "ahmedmoghazy9399@gmail.com",
+      "bloodGroup": "AB+",
+      "dateOfBirth": "2024-03-12",
+      "mobile": "01030229525",
+      "gender": "Male"
+    },
+    {
+      "id": "3",
+      "image": "https://www.writergirl.com/wp-content/uploads/2014/11/Doctor-790X1024.jpg",
+      "name": "ahmed moghazy",
+      "email": "ahmedmoghazy9399@gmail.com",
+      "bloodGroup": "AB+",
+      "dateOfBirth": "2024-04-04",
+      "mobile": "01234567890",
+      "gender": "Male"
     }
   ]
 }

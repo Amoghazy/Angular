@@ -30,7 +30,8 @@ export class TopWidgetsComponent {
   ];
   chartOptions = {
     maintainAspectRatio: false,
-    aspectRatio: null,
+    responsive: true,
+    aspectRatio: null as any,
     interaction: {
       mode: 'index' as const,
       axis: 'y' as const,
@@ -42,6 +43,7 @@ export class TopWidgetsComponent {
     },
     scales: {
       x: {
+        beginAtZero: true,
         grid: {
           display: false,
         },
@@ -50,6 +52,7 @@ export class TopWidgetsComponent {
         },
       },
       y: {
+        beginAtZero: true,
         grid: {
           display: false,
         },

@@ -125,12 +125,12 @@ filteredListOfData.length > 0 ? filteredListOfData : listOfData"
 
             <div class="d-grid gap-2 mt-2">
               @if (!editDRBtn) {
-              <button (click)="confirmAddDoctor()" type="button" [disabled]="PatientForm.invalid"
+              <button (click)="confirmAddDoctor(PatientForm)" type="button" [disabled]="PatientForm.invalid"
                 class="btn btn-primary">
                 Confirm
               </button>}
               @else {
-              <button type="button" (click)="updateDoctor()" [disabled]="PatientForm.invalid" class="btn btn-primary">
+              <button type="button" (click)="updateDoctor(PatientForm)" [disabled]="PatientForm.invalid" class="btn btn-primary">
                 Update
               </button>
 

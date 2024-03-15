@@ -16,7 +16,6 @@
     box-shadow: -1px 6px 20px 0px #939393;
     display: flex;
 
-
     .icon {
       font-size: 50px;
     }
@@ -40,31 +39,32 @@
   }
 }
 @media only screen and (max-width: 576px) {
-  .col-md-6{
-
-width: 100% !important;
-  }}
-
-@media only screen and  (min-width: 577px) and (max-width: 768px) {
-  .col-md-6{
-
-width: 100% !important;
+  .col-md-6 {
+    width: 100% !important;
   }
 }
 
-@media only screen and  (min-width: 768px) and (max-width: 992px) {
-  .col-md-6{
-
-width: 100% !important;
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  .col-md-6 {
+    width: 100% !important;
   }
 }
 
-@media only screen and  (min-width: 993px) and (max-width: 1200px) {
-  .col-md-6{
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .col-md-6 {
+    width: 100% !important;
+  }
+}
 
-width: 48% !important;
-  }}
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+  .col-md-6 {
+    width: 48% !important;
+  }
+}
 
 @media (min-width: 1201px) {
   /* Styles for devices with a minimum width of 1201px (e.g., large desktop screens) */
+}
+.chart {
+  width: 100%;
 }

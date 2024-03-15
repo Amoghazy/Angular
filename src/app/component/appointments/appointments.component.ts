@@ -32,6 +32,7 @@ import { Subscription } from 'rxjs';
 })
 export class AppointmentsComponent implements OnInit, OnDestroy, OnChanges {
   @ViewChild('form') form!: TemplateRef<any>;
+  @ViewChild('appoinForm') public appoinForm!: NgForm;
   constructor(
     private message: NzMessageService,
     private modal: NzModalService,
@@ -97,6 +98,9 @@ export class AppointmentsComponent implements OnInit, OnDestroy, OnChanges {
       nzOkText: 'ESC',
 
       nzCancelText: 'Cancle',
+      nzOnCancel: () => {
+        this.appoinForm.onReset();
+      },
     });
   }
   updateAppoments(formAppo: NgForm) {
